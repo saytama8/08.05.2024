@@ -1,3 +1,4 @@
+from pdb import Restart
 import pygame
 import sys
 import random
@@ -6,7 +7,7 @@ pygame.init()
 
 SCREEN_WIDTH = 900
 SCREEN_HEIGHT = 700
-FPS = 60
+FPS = 100
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -128,7 +129,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_r:
-                restart()
+                Restart()
 
         # Обробка стрільби
         keys = pygame.key.get_pressed()
@@ -155,7 +156,7 @@ def main():
         # Перевірка зіткнення гравця з ворожим танком
         hits = pygame.sprite.spritecollide(player, enemy_tanks, True)
         if hits:
-            restart()
+            Restart()
 
         # рахунок
         font = pygame.font.Font(None, 36)
@@ -190,5 +191,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
